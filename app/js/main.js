@@ -153,7 +153,7 @@ $(document).ready(function() {
         }
       },
       {
-        breakpoint: 768,
+        breakpoint: 870,
         settings: {
           arrows: false,
           centerMode: true,
