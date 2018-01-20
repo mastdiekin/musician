@@ -214,7 +214,7 @@ canvas.canvas__anim { opacity: .6 !important; -webkit-transition: opacity 2s lin
 section { padding: 160px 0 65px; }
 
 /* Discography */
-.discography { padding-bottom: 400px; background-image: url("../images/discography.png"); background-repeat: no-repeat; background-position: 50% 100%; -webkit-background-size: contain; background-size: contain; max-width: 4000px; margin: 0 auto; }
+.discography { padding-bottom: 400px; background-image: url("../images/discography.jpg"); background-repeat: no-repeat; background-position: 50% 100%; -webkit-background-size: contain; background-size: contain; max-width: 4000px; margin: 0 auto; }
 
 .discography__item { margin-bottom: 113px; *zoom: 1; }
 
@@ -263,7 +263,7 @@ section { padding: 160px 0 65px; }
 .button.svg:hover svg { left: 18px; -webkit-transition: left 0.2s linear; -o-transition: left 0.2s linear; transition: left 0.2s linear; }
 
 /* Concert */
-.concert { min-height: 1250px; background-image: url("../images/concert.png"); background-repeat: no-repeat; background-position: 50% 100%; -webkit-background-size: contain !important; background-size: contain !important; max-width: 4000px; margin: 0 auto; }
+.concert { min-height: 1250px; background-image: url("../images/concert.jpg"); background-repeat: no-repeat; background-position: 50% 100%; -webkit-background-size: contain !important; background-size: contain !important; max-width: 4000px; margin: 0 auto; }
 
 .concert__item { *zoom: 1; margin-top: 170px; }
 
@@ -323,7 +323,7 @@ section { padding: 160px 0 65px; }
 .sub a { display: inline-block !important; }
 
 /* Slider */
-.slider { background-image: url("../images/slider.png"); -webkit-background-size: cover; background-size: cover; background-position: 50% 0; padding: 180px 0; background-attachment: fixed; position: relative; }
+.slider { background-image: url("../images/slider.jpg"); -webkit-background-size: cover; background-size: cover; background-position: 50% 0; padding: 180px 0; background-attachment: fixed; position: relative; }
 
 .slider__wrap { overflow-x: hidden; }
 
