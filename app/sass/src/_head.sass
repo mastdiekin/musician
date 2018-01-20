@@ -1,0 +1,50 @@
+@import src/_base
+@import src/_fonts
+@import src/_func
+@import helpers/generated/_sprites
+@import lib/slick-theme
+@import ../libs/slick-carousel/slick/slick.scss
+$output-bourbon-deprecation-warnings: false
+@import "bourbon"
+
+@import url('https://fonts.googleapis.com/css?family=Dosis|Open+Sans:400,700')
+
+=sans
+	font-family: 'Open Sans', sans-serif
+
+=sansBold
+	font-family: 'Open Sans', sans-serif
+	font-weight: 700
+
+=dosis
+	font-family: 'Dosis', sans-serif
+
+$t: .2s linear
+
+ol, ul
+	list-style: none
+
+blockquote, q
+	quotes: none
+
+blockquote:before, blockquote:after,
+q:before, q:after
+	content: ''
+	content: none
+
+table
+	border-collapse: collapse
+	border-spacing: 0
+
+html, body
+	height: 100%
+
+body
+	height: 100%
+	margin: 0
+	padding: 0
+	overflow-x: hidden
+	background: $bg
+	+sans
+
+@import _preloader

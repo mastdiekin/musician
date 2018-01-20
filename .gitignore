@@ -1,0 +1,8 @@
+/node_modules/
+/bourbon/
+*.sublime-project
+*.sublime-workspace
+*.sublime-gulp.cache
+/app/layout/
+/app/psd/
+/app/libs/

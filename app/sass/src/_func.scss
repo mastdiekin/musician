@@ -1,0 +1,32 @@
+@import "src/_color";
+@import "helpers/_palette";
+@import "helpers/_mixins";
+
+$status-colors: (
+	primary: #000,
+	success: #27BA6C,
+	info: #03a9f4,
+	warning: #FF8833,
+	danger: #ff1a1a
+);
+
+$breakpoints: (
+	xs: 320px,
+	x: 480px,
+	s: 868px,
+	m: 1091px,
+	l: 1300px
+);
+
+@mixin rr($breakpoint) { 
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media only screen and (max-width: map-get($breakpoints, $breakpoint)) {
+			@content;
+		}
+	}
+
+	@else {
+		@warn "К сожалению, значение не найдено в `#{$breakpoint}`. "
+			+ "Убедитесь, что он определен в `$breakpoints` map.";
+	}
+}

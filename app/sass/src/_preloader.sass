@@ -1,0 +1,138 @@
+html.js
+	.loader
+		background: none repeat scroll 0 0 rgba($w, .9)
+		bottom: 0
+		height: 100%
+		left: 0
+		+pf
+		right: 0
+		top: 0
+		width: 100%
+		z-index: 9999
+
+	.loader_inner 
+		height: 100px
+		width: 100px
+		margin-top: -30px
+		margin-left: -30px
+		left: 50%
+		top: 50%
+		position: absolute
+
+@keyframes rotate__circle
+	from
+		transform: rotate(0deg)
+	to
+		transform: rotate(360deg)
+
+.loader__circle
+	width: 30px
+	height: 30px
+	+pa
+	top: 50%
+	margin-top: -15px
+	left: 50%
+	margin-left: -15px
+	border-radius: 90%
+	border: 8px solid #c7b3a8
+	opacity: .98
+	z-index: 1
+	+df
+	+cc
+	animation: rotate__circle 1s linear infinite
+	&:after
+		+c
+		+pa
+		top: -2px
+		left: -3px
+		width: 10px
+		height: 10px
+		border-top: 1px solid #E0E0E0
+		transform: rotate(-45deg)
+		border-radius: 90%
+	&:before
+		+c
+		+pa
+		width: 4px
+		height: 4px
+		border-radius: 90%
+		background: #c7b3a8
+
+.musician__loader
+	z-index: 99
+	+pr
+	width: 100px
+	height: 100px
+	+df
+	+cc
+
+
+#bars
+	height: 10px
+	width: 50px
+	overflow: hidden
+	+pr
+
+.bar
+	background: $b
+	bottom: 0px
+	height: 3px
+	position: absolute
+	width: 3px
+	animation: sound 0ms -800ms linear infinite alternate
+
+.bar:nth-child(1)  
+	left: 1px 
+	animation-duration: 474ms
+
+.bar:nth-child(2)  
+	left: 6px 
+	animation-duration: 433ms
+
+.bar:nth-child(3)  
+	left: 11px 
+	animation-duration: 407ms
+
+.bar:nth-child(4)  
+	left: 16px 
+	animation-duration: 458ms
+
+.bar:nth-child(5)  
+	left: 21px 
+	animation-duration: 400ms
+
+.bar:nth-child(6)  
+	left: 26px 
+	animation-duration: 427ms
+
+.bar:nth-child(7)  
+	left: 31px 
+	animation-duration: 441ms
+
+.bar:nth-child(8)  
+	left: 36px 
+	animation-duration: 419ms
+
+.bar:nth-child(9)  
+	left: 41px 
+	animation-duration: 487ms
+
+.bar:nth-child(10) 
+	left: 46px 
+	animation-duration: 442ms​
+
++keyframes(sound)
+	0%
+		opacity: .35
+		height: 3px
+	100%
+		opacity: 1
+		height: 28px
+
++keyframes(soundbackstage)
+	0%
+		opacity: .35
+		height: 3px
+	100%
+		opacity: 0.5
+		height: 15px

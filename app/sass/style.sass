@@ -1,0 +1,987 @@
+@import src/_head
+
+/* Topline */
+.topline
+	background: rgba($b, .1)
+	+pf
+	left: 0
+	right: 0
+	top: 0
+	z-index: 10
+	transition: background $t
+	&.--dark
+		background: rgba($b, .7)
+		transition: background $t
+		box-shadow: 0px -1px 15px 1px rgba($b, .5)
+		.topline__menu
+			a
+				color: $w
+				&:hover
+					color: $w
+					&:before
+						background: $w
+					+r(992)
+						color: #727272
+				&.active
+					&:before
+						background: $w
+		.menu__toggle
+			span
+				background: $w
+	&__menu
+		margin: 0
+		padding: 0
+		+df
+		justify-content: space-between
+		+fw
+		&
+		+rmin(992)
+			display: flex !important
+		+r(992)
+			display: none
+			flex-direction: column
+			height: 100%
+			max-height: calc(100vh - 100px)
+			overflow-y: auto
+			padding: 10px 0
+			li
+				display: block
+				a
+					transition: background $t, padding $t
+					&:hover
+						padding: 0 10px
+						background: $w
+						transition: background $t, padding $t
+					&:before
+						display: none
+		li
+			display: inline-block
+			a
+				display: block
+				+dosis
+				text-transform: uppercase
+				font-size: 17px
+				+lh(59, 17)
+				+pr
+				color: #727272
+				&:before
+					opacity: 0
+					+c
+					+pa
+					left: 0
+					right: 0
+					bottom: 10px
+					height: 2px
+					background: $b
+					transition: opacity $t, color $t
+				&:hover
+					color: #5f5f5f
+					&:before
+						opacity: 1
+						transition: opacity $t, color $t
+				&.active
+					&:before
+						opacity: 1
+
+.menu__toggle
+	display: none
+	width: 50px
+	height: 50px
+	float: right
+	border: 0
+	background-color: transparent
+	+pr
+	span
+		+pa
+		display: block
+		width: 70%
+		left: 50%
+		margin-left: -18px
+		height: 4px
+		background: $b
+		border-radius: 2px
+		&:nth-of-type(1)
+			top: 12px
+			transition: top $t, transform $t
+		&:nth-of-type(2)
+			top: 50%
+			margin-top: -2px
+			transition: opacity $t
+		&:nth-of-type(3)
+			bottom: 12px
+			transition: bottom $t, transform $t
+	+r(992)
+		display: block
+	&.--active
+		span
+			&:nth-of-type(1)
+				top: 23px
+				transform: rotate(45deg)
+				transition: top $t, transform $t
+			&:nth-of-type(2)
+				opacity: 0
+				transition: opacity $t
+			&:nth-of-type(3)
+				bottom: 23px
+				transform: rotate(-45deg)
+				transition: bottom $t, transform $t
+
+/* Header */
+
+canvas
+	+pa
+	bottom: -20px
+	left: 0
+	right: 0
+	top: 0
+	bottom: 0
+	width: 100% !important
+	height: 1100px !important
+	opacity: 0
+	transition: opacity 2s linear
+	&.canvas__anim
+		opacity: .6 !important
+		transition: opacity 2s linear
+	+r(769)
+		display: none
+
+.header
+	+pr
+	min-height: 1062px
+	height: 1062px
+	max-width: 2000px
+	margin: 0 auto
+	// +df
+	// +cc
+	+pr
+	background-size: cover
+	background-position: 50% 0
+	+r(450)
+		background-position: 45% 0
+	&__text
+		background-image: url('../images/hero-text.png')
+		// min-width: 450px
+		// min-height: 418px
+		// height: 418px
+		z-index: 1
+		width: 450px
+		height: 418px
+		+pa
+		top: 50%
+		left: 50%
+		margin-left: -225px
+		margin-top: -209px
+		background-size: cover
+		background-position: 50% 0
+		transform: translateY(-110px)
+		+r(450)
+			width: 100%
+			// width: 50%
+			min-width: 100%
+			left: auto
+			margin-left: 0	
+			background-size: 100%
+			background-repeat: no-repeat
+
+.main__title
+	text-align: center
+	text-transform: uppercase
+	+dosis
+	font-size: 50px
+	+lh(50, 59)
+	margin: 0
+	color: $b
+	background: transparent
+	background: -webkit-linear-gradient(transparent, transparent), url('../images/text-pattern.png') repeat
+	background-position: 0 58%
+	-webkit-background-clip: text
+	-webkit-text-fill-color: transparent
+	+pr
+	transform: scale3d(.9,.9,.9)
+	transition: transform 1s linear, opacity .5s linear
+	opacity: .5
+	&.fix__stripe
+		+pr
+		z-index: 1
+	&.black
+		background-image: none
+		-webkit-text-fill-color: #000
+		color: $b
+	&.gray
+		background-image: none
+		-webkit-text-fill-color: #5b5c5a
+		color: #5b5c5a
+	&.red
+		background-position: 0 80%
+	&.blue__gradient
+		background: -webkit-linear-gradient(#62a2ad, #8dbab3)
+		-webkit-background-clip: text
+		-webkit-text-fill-color: transparent
+	&.blue
+		background-image: none
+		-webkit-text-fill-color: #42717e
+		color: #42717e
+	&:before
+		+c
+		+pa
+		height: 1px
+		background: $b
+		top: 50%
+		z-index: -1
+		left: 50%
+		right: 50%
+		opacity: 0
+		transition: opacity .1s linear, left 1s linear, right 1s linear
+		+r(320)
+			display: none
+	&.stripe__anim
+		transform: scale3d(1,1,1)
+		transition: transform 1s linear, opacity .5s linear
+		opacity: 1
+		&:before
+			opacity: 1
+			right: 0
+			left: 0
+			transition: opacity .1s linear, left 1s linear, right 1s linear
+			transition-delay: 1s
+
+
+.main__description
+	padding: 0
+	text-align: center
+	+sans
+	color: #798285
+	font-size: 14px
+	+lh(24, 14)
+	margin-bottom: 155px
+	+r(769)
+		margin-bottom: 80px
+
+section
+	padding: 160px 0 65px
+	+r(769)
+		padding: 80px 0 32.5px
+
+
+/* Discography */
+.discography
+	padding-bottom: 400px
+	background-image: url('../images/discography.png')
+	background-repeat: no-repeat
+	background-position: 50% 100%
+	background-size: contain
+	max-width: 4000px
+	margin: 0 auto
+	+rmin(2000)
+		min-height: 2000px
+		background-size: 100% !important
+	+r(992)
+		padding-bottom: 200px
+	+r(480)
+		padding-bottom: 100px
+	&__item
+		margin-bottom: 113px
+		+clr
+		&:last-child
+			.button
+				margin-top: 100px !important
+		+r(769)
+			margin-bottom: 50px
+	&__category
+		.year,
+		.date
+			+sansBold
+			color: #5c5c5c
+			&:after
+				+c
+				+pr
+				display: block
+				width: 0
+				height: 1px
+				background: $b
+				// top: -5px
+				transition: width 1s linear
+			&.stripe__date
+				&:after
+					width: 100%
+					transition: width 1s linear
+		.category
+			a
+				+sansBold
+				color: $b
+				text-transform: uppercase
+			+r(769)
+				margin-bottom: 20px
+	&__title
+		a
+			font-size: 23px
+			color: $b
+			+lh(24, 23)
+	&__text
+		@extend .main__description
+		text-align: left
+		margin-bottom: 24px
+		.button
+			+r(769)
+				margin: 0 auto
+
+.button
+	min-height: 56px
+	height: 56px
+	max-width: 196px
+	+df
+	+cc
+	color: $b
+	+sansBold
+	+pr
+	&:hover
+		color: $b
+		&:before
+			background: rgba($w, .1)
+			transition: background $t
+	&:before
+		+pa
+		+c
+		top: 0
+		bottom: 0
+		left: 0
+		right: 0
+		background: none
+		transition: background $t
+		z-index: 1
+	&.white
+		color: $w
+		&:hover
+			color: $w
+	&.stone
+		background-image: url('../images/stone.png')
+		background-size: cover
+	&.palm
+		background-image: url('../images/palm.png')
+		background-size: cover
+	&.foliage
+		background-image: url('../images/foliage.png')
+		background-size: cover
+	&.with__border
+		border: 1px solid #b3b5b5
+	&.svg
+		transition: background $t
+		svg
+			width: 5px
+			height: 10px
+			left: 15px
+			transition: left $t
+			+pr
+		&:hover
+			background: rgba($w, .2)
+			transition: background $t
+			svg
+				left: 18px
+				transition: left $t
+
+
+/* Concert */
+.concert
+	min-height: 1250px
+	background-image: url('../images/concert.png')
+	background-repeat: no-repeat
+	background-position: 50% 100%
+	background-size: contain !important
+	max-width: 4000px
+	margin: 0 auto
+	+rmin(2000)
+		min-height: 2000px
+		background-size: 100% !important
+	&__item
+		+clr
+		margin-top: 170px
+		+r(769)
+			margin-top: 0
+	&__category
+		@extend .discography__category
+		margin-bottom: 85px
+		.year
+			&:after
+				display: block
+				margin-top: 10px
+				width: 50%
+				+r(769)
+					width: 100%
+	&__title
+		@extend .discography__title
+	&__text
+		@extend .discography__text
+		+r(992)
+			p
+				padding: 15px
+				background: rgba($w, .6)
+		+r(769)
+			p
+				padding: 0
+
+
+/* Lattercon */
+.lattercon
+	&__video
+		video
+			width: 100%
+			height: 500px
+	&__item
+		+df
+		justify-content: space-between
+		margin-bottom: 54px
+		+r(992)
+			display: block
+		.lattercon__info
+			padding: 15px
+		.lattercon__info,
+		.lattercon__video
+			width: 50%
+			+r(992)
+				width: 100%
+		&.info__left,
+		&.info__right,
+			.lattercon__info
+				&:before
+					+c
+					+pa
+					z-index: 1
+					top: 50%
+					margin-top: -10px
+					+r(992)
+						+arr(20, 13, #f5f6f6, b)
+						top: auto
+						bottom: -13px
+						left: 50%
+						margin-left: -10px
+			.lattercon__video
+				background: $b
+				color: $w
+		&.info__left
+			.lattercon__info
+				order: 1
+				&:before
+					right: -13px
+					+arr(13, 20, #f5f6f6, r)
+			.lattercon__video
+				order: 2
+		&.info__right
+			.lattercon__info
+				order: 2
+				&:before
+					left: -13px
+					+arr(13, 20, #f5f6f6, l)
+			.lattercon__video
+				order: 1
+	&__info
+		padding: 35px
+		background: #f5f6f6
+		+pr
+		min-height: 500px
+		+r(992)
+			padding: 0
+			min-height: auto
+	&__category
+		@extend .discography__category
+		margin-bottom: 50px
+		.year
+			&:after
+				display: block
+				margin-top: 10px
+				width: 75%
+				+r(769)
+					width: 100%
+	&__title
+		@extend .discography__title
+	&__text
+		@extend .discography__text
+	&__sub
+		+df
+		justify-content: center
+		+r(1262)
+			display: block
+		&-left
+			width: 40%
+		&-right
+			width: 60%
+			+r(1262)
+				margin-top: 20px
+		+r(1262)
+			&-left,
+			&-right,
+				width: 100%
+.sub
+	font-size: 12px
+	color: #abacac
+	+clr
+	margin: 0
+	padding: 0
+	height: 100%
+	+df
+	align-items: center
+	+r(1262)
+		display: block
+	svg
+		width: 15px
+		height: 15px
+		display: inline-block
+		+pr
+		top: 3px
+		margin-right: 10px
+	li
+		float: left
+		margin-left: 20px
+		&:first-child
+			margin-left: 0
+	a
+		@extend .sub
+		display: inline-block !important
+
+
+/* Slider */
+.slider
+	background-image: url('../images/slider.png')
+	background-size: cover
+	background-position: 50% 0
+	padding: 180px 0
+	background-attachment: fixed
+	+pr
+	&__wrap
+		overflow-x: hidden
+	.item
+		color: $w !important
+		overflow: hidden
+	&__next,
+	&__prev,
+		// display: block !important
+		cursor: pointer
+		+pa
+		top: 50%
+		margin-top: -85px
+		+r(769)
+			display: none !important
+		svg
+			width: 12px
+			height: 23px
+			+pa
+			top: -10px
+	&__next
+		right: 0
+		+arr(85, 170, $w, l)
+		+r(992)
+			margin-top: -40px
+			+arr(40, 70, $w, l)
+		svg
+			right: -60px
+			+r(992)
+				right: -32px
+	&__prev
+		left: 0
+		+arr(85, 170, $w, r)
+		+r(992)
+			margin-top: -40px
+			+arr(40, 70, $w, r)
+		svg
+			left: -60px
+			transform: rotate(-180deg)
+			+r(992)
+				left: -32px
+	&__icon
+		text-align: center
+		font-size: 0
+		svg
+			fill: $w
+			width: 30px
+			height: 30px
+		&:after,
+		&:before
+			+c
+			display: inline-block
+			+pr
+			top: -8px
+		&:before
+			+sprite($slider-top-left)
+			margin-right: 24px
+		&:after
+			+sprite($slider-top-right)
+			margin-left: 24px
+	&__title
+		font-size: 18px
+		+lh(26, 18)
+		color: $w
+		text-transform: uppercase
+		+dosis
+		text-align: center
+		margin: 47px 0
+		transform: translate3d(0,-5px,0)
+		opacity: 0
+		transition: transform .4s linear, opacity .5s linear
+	&__quote
+		.main__description
+			margin-bottom: 73px
+			opacity: 0
+			transform: translate3d(-50px,0,0)
+			transition: transform .6s linear, opacity .5s linear
+		&-end
+			@extend .main__description
+			display: block
+			margin-bottom: 0
+	.slick-current
+		.slider__title
+			transform: translate3d(0,0,0)
+			opacity: 1
+			transition: transform .4s linear, opacity .5s linear
+		.main__description
+			opacity: 1
+			transform: translate3d(0,0,0)
+			transition: transform .6s linear, opacity .5s linear
+
+
+
+/* News */
+.news
+	&__items
+		+df
+		justify-content: space-between
+		+fw
+	&__item
+		width: calc(33.3% - 15px)
+		+pr
+		overflow: hidden
+		padding: 36px
+		background-size: cover
+		background-position: 50% 50%
+		background-repeat: no-repeat
+		margin-bottom: 24px
+		&:before
+			+c
+			+pa
+			top: 0
+			bottom: 0
+			left: 0
+			right: 0
+			background: rgba($w, .77)
+		+r(1270)
+			width: calc(50% - 12px)
+		+r(992)
+			width: 100%
+	&__number
+		+pa
+		font-size: 82px
+		+sansBold
+		color: $b
+		opacity: .17
+		bottom: -40px
+		right: 10px
+		+unselectable
+	&__category
+		@extend .discography__category
+		margin-bottom: 50px
+		+pr
+		z-index: 1
+		a
+			color: $w !important
+	&__title
+		@extend .discography__title
+		margin-bottom: 40px
+		+pr
+		z-index: 1
+	&__text
+		@extend .discography__text
+		+pr
+		z-index: 1
+
+
+/* Events */
+.events
+	min-height: 1203px
+	background-image: url('../images/events.jpg')
+	background-size: contain
+	background-repeat: no-repeat
+	background-position: 50% 100%
+	+rmin(2000)
+		min-height: 2400px
+		background-size: 100% !important
+	+r(1440)
+		min-height: 800px
+		background-size: cover
+	.main__title
+		margin: 250px 0 120px
+		// +pr
+		// z-index: 1
+		text-align: left
+		padding-left: 10px
+		+r(769)
+			text-align: center
+		&:before
+			right: 200px
+			+r(1270)
+				right: 50px
+			+r(769)
+				right: 0
+		+r(1440)
+			margin-top: 0
+	&__item
+		+clr
+		margin-bottom: 100px
+		&:last-child
+			.date
+				&:after
+					display: none
+	&__title
+		@extend .discography__title
+		+pr
+		&:after
+			+c
+			+pr
+			display: block
+			width: 50%
+			height: 1px
+			background: $b
+			margin: 20px 0 10px
+	&__text
+		@extend .discography__text
+		+r(769)
+			@extend .concert__text
+			p
+				padding: 10px
+	&__category
+		@extend .discography__category
+		.year,
+		.date
+			&:after
+				display: none
+		.date
+			height: 100px
+			display: block
+			&.stripe__date
+				width: 1px !important
+			&:before,
+			&:after
+				left: 35px
+			&:before
+				+c
+				+pr
+				display: block
+				height: 40%
+				width: 1px
+				background: $b
+				top: -10px
+			&:after
+				+c
+				+pr
+				top: 10px
+				display: block
+				height: 100%
+				width: 1px
+				background: $b
+
+
+/* History */
+.history
+	min-height: 1105px
+	background-image: url('../images/history.jpg')
+	background-size: contain
+	background-repeat: no-repeat
+	background-position: 50% 100%
+	// .main__title
+	// 	+pr
+	// 	z-index: 1
+	+r(1300)
+		min-height: 1000px
+	+r(768)
+		min-height: 800px
+	+rmin(2000)
+		min-height: 1400px
+		background-size: 100% !important
+	.history__item
+		text-align: center
+		padding: 15px
+		background: none
+		transition: background $t
+		+pr
+		.date
+			display: block
+			color: #b2b2b2
+			+dosis
+			font-size: 35px
+			+lh(59, 35)
+			text-transform: uppercase
+			svg
+				width: 8px
+				height: 8px
+				opacity: 0
+				+pr
+				top: -8px
+				margin: 0 20px
+				transition: opacity $t
+		p
+			opacity: 0
+			transition: opacity $t, transform .1s ease
+			transform: translate3d(0,-10px,0)
+	.slick-current
+		.history__item
+			&:after,
+			&:before
+				+c
+				+pa
+				width: 30%
+				top: 45px
+				height: 1px
+				background: #b1b1b1
+			&:after
+				right: -20%
+			&:before
+				left: -20%
+			+rmin(1400)
+				transition: background $t
+				background: rgba($w, .6)
+			p
+				opacity: 1
+				transition: opacity $t, transform .1s ease
+				transform: translate3d(0,0,0)
+			.date
+				color: #575a59
+				svg
+					opacity: 1
+					transition: opacity $t
+
+
+/* Contact */
+.contact
+	min-height: 1102px
+	background-image: url('../images/contact.jpg')
+	background-size: contain
+	background-repeat: no-repeat
+	background-position: 50% 100%
+	// .main__title
+	// 	+pr
+	// 	z-index: 1
+	+r(1300)
+		min-height: 1000px
+	+r(992)
+		min-height: 800px
+	+r(769)
+		min-height: 400px
+	+rmin(2000)
+		min-height: 1400px
+		background-size: 100% !important
+	.main__title
+		margin-top: 300px
+		text-align: left
+		+r(769)
+			text-align: center
+			margin-top: 0
+	.main__description
+		text-align: left
+		margin-bottom: 90px
+	&__form
+		input[type="text"],
+		input[type="email"],
+		textarea,
+			background: rgba($w, .5)
+			display: block
+			width: 100%
+			height: 40px
+			line-height: 40px
+			border: 0
+			border-bottom: 1px solid $b
+			margin-bottom: 35px
+			outline: none
+			+placeholder
+				color: #798285
+				opacity: 1
+				transition: opacity $t
+			&:focus
+				+placeholder
+					opacity: 0
+					transition: opacity $t
+		textarea
+			height: auto
+			resize: none
+		button
+			border: 0
+			font-size: 20px
+			+sansBold
+			background-color: transparent
+			text-transform: uppercase
+			outline: none
+			transition: background $t
+			&:hover
+				background: rgba($w, .6)
+				transition: background $t
+			+r(769)
+				background: rgba($w, .8)
+				display: block
+				margin: 0 auto
+	&__social
+		+pr
+		margin: 0
+		+r(769)
+			padding: 0
+		&:before
+			+c
+			+pa
+			left: 50px
+			top: 0
+			bottom: 0
+			width: 1px
+			background: $b
+			+r(769)
+				display: none
+		li
+			display: block
+			margin-bottom: 70px
+			+r(769)
+				float: right
+				margin-right: 40px
+			a
+				height: 50px
+				+df
+				+cc
+				span
+					display: block
+					&.facebook
+						+sprite($facebook)
+					&.instagram
+						+sprite($instagram)
+					&.twitter
+						+sprite($twitter)
+
+
+/* Video */
+// .homepage-hero-module
+// 	border-right: none
+// 	border-left: none
+// 	position: relative
+
+// .no-video .video-container video, .touch .video-container video
+// 	display: none
+
+// .no-video .video-container .poster, .touch .video-container .poster
+// 	display: block !important
+
+// .video-container
+// 	position: relative
+// 	bottom: 0%
+// 	left: 0%
+// 	height: 100%
+// 	width: 100%
+// 	overflow: hidden
+// 	background: #000
+// 	.poster img
+// 		width: 100%
+// 		bottom: 0
+// 		position: absolute
+// 	.filter
+// 		z-index: 100
+// 		position: absolute
+// 		background: rgba(0, 0, 0, 0.4)
+// 		width: 100%
+// 	video
+// 		position: absolute
+// 		z-index: 0
+// 		bottom: 0
+// 		height: auto !important
+// 		&.fillWidth
+// 			width: 100%

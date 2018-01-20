@@ -1,0 +1,26 @@
+@font-face {
+	font-family: "myfont";
+	src: url('app/fonts/myfont.eot');
+	src: url('app/fonts/myfont.eot?#iefix') format('eot'),
+		url('app/fonts/myfont.woff2') format('woff2'),
+		url('app/fonts/myfont.woff') format('woff'),
+		url('app/fonts/myfont.ttf') format('truetype'),
+		url('app/fonts/myfont.svg#myfont') format('svg');
+}
+
+.icon:before {
+	font-family: "myfont";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+	text-decoration: none;
+	text-transform: none;
+}
+
+
+.icon-1:before {
+	content: "\E001";
+}

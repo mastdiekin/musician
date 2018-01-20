@@ -1,0 +1,121 @@
+// SASS variables are information about icon's compiled state, stored under its original file name
+//
+// .icon-home
+//   width: $icon-home-width
+//
+// The large array-like variables contain all information about a single icon
+// $icon-home: x y offset_x offset_y width height total_width total_height image_path
+//
+// At the bottom of this section, we provide information about the spritesheet itself
+// $spritesheet: width height image $spritesheet-sprites
+$facebook-name: 'facebook'
+$facebook-x: 47px
+$facebook-y: 0px
+$facebook-offset-x: -47px
+$facebook-offset-y: 0px
+$facebook-width: 8px
+$facebook-height: 17px
+$facebook-total-width: 55px
+$facebook-total-height: 32px
+$facebook-image: '../images/sprite.png'
+$facebook: (47px, 0px, -47px, 0px, 8px, 17px, 55px, 32px, '../images/sprite.png', 'facebook', )
+$instagram-name: 'instagram'
+$instagram-x: 0px
+$instagram-y: 0px
+$instagram-offset-x: 0px
+$instagram-offset-y: 0px
+$instagram-width: 19px
+$instagram-height: 19px
+$instagram-total-width: 55px
+$instagram-total-height: 32px
+$instagram-image: '../images/sprite.png'
+$instagram: (0px, 0px, 0px, 0px, 19px, 19px, 55px, 32px, '../images/sprite.png', 'instagram', )
+$slider-top-left-name: 'slider-top-left'
+$slider-top-left-x: 19px
+$slider-top-left-y: 0px
+$slider-top-left-offset-x: -19px
+$slider-top-left-offset-y: 0px
+$slider-top-left-width: 28px
+$slider-top-left-height: 8px
+$slider-top-left-total-width: 55px
+$slider-top-left-total-height: 32px
+$slider-top-left-image: '../images/sprite.png'
+$slider-top-left: (19px, 0px, -19px, 0px, 28px, 8px, 55px, 32px, '../images/sprite.png', 'slider-top-left', )
+$slider-top-right-name: 'slider-top-right'
+$slider-top-right-x: 19px
+$slider-top-right-y: 8px
+$slider-top-right-offset-x: -19px
+$slider-top-right-offset-y: -8px
+$slider-top-right-width: 28px
+$slider-top-right-height: 8px
+$slider-top-right-total-width: 55px
+$slider-top-right-total-height: 32px
+$slider-top-right-image: '../images/sprite.png'
+$slider-top-right: (19px, 8px, -19px, -8px, 28px, 8px, 55px, 32px, '../images/sprite.png', 'slider-top-right', )
+$twitter-name: 'twitter'
+$twitter-x: 0px
+$twitter-y: 19px
+$twitter-offset-x: 0px
+$twitter-offset-y: -19px
+$twitter-width: 16px
+$twitter-height: 13px
+$twitter-total-width: 55px
+$twitter-total-height: 32px
+$twitter-image: '../images/sprite.png'
+$twitter: (0px, 19px, 0px, -19px, 16px, 13px, 55px, 32px, '../images/sprite.png', 'twitter', )
+$spritesheet-width: 55px
+$spritesheet-height: 32px
+$spritesheet-image: '../images/sprite.png'
+$spritesheet-sprites: ($facebook, $instagram, $slider-top-left, $slider-top-right, $twitter, )
+$spritesheet: (55px, 32px, '../images/sprite.png', $spritesheet-sprites, )
+
+// The provided mixins are intended to be used with the array-like variables
+//
+// .icon-home
+//   @include sprite-width($icon-home)
+//
+// .icon-email
+//   @include sprite($icon-email)
+//
+// Example usage in HTML:
+//   `display: block` sprite:
+//   <div class="icon-home"></div>
+//
+// To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+//   // CSS
+//   .icon {
+//     display: inline-block;
+//   }
+//
+//   // HTML
+//   <i class="icon icon-home"></i>
+@mixin sprite-width($sprite)
+  width: nth($sprite, 5)
+
+@mixin sprite-height($sprite)
+  height: nth($sprite, 6)
+
+@mixin sprite-position($sprite)
+  $sprite-offset-x: nth($sprite, 3)
+  $sprite-offset-y: nth($sprite, 4)
+  background-position: $sprite-offset-x  $sprite-offset-y
+
+@mixin sprite-image($sprite)
+  $sprite-image: nth($sprite, 9)
+  background-image: url(#{$sprite-image})
+
+@mixin sprite($sprite)
+  @include sprite-image($sprite)
+  @include sprite-position($sprite)
+  @include sprite-width($sprite)
+  @include sprite-height($sprite)
+
+// The `sprites` mixin generates identical output to the CSS template
+//   but can be overridden inside of SASS
+//
+// @include sprites($spritesheet-sprites)
+@mixin sprites($sprites)
+  @each $sprite in $sprites
+    $sprite-name: nth($sprite, 10)
+    .#{$sprite-name}
+      @include sprite($sprite)

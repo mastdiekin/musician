@@ -1,0 +1,54 @@
+{% import "app/pages/layout/_mixins.html" as mixins %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="images/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/favicon/apple-touch-icon-114x114.png">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="styles/lib/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/animate.css/animate.min.css">
+	<!-- <link rel="stylesheet" href="styles/all.min.css"> -->
+	<link rel="stylesheet" href="styles/style.css">
+	<script src="js/src/modernizr/modernizr.js"></script>
+
+	<title>{{ title }}</title>
+</head>
+<body>
+<div class="loader">
+	<div class="loader_inner">
+		<div class="musician__loader">
+			<div class="loader__circle"></div>
+			<div id='bars'>
+				<div class='bar'></div>
+				<div class='bar'></div>
+				<div class='bar'></div>
+				<div class='bar'></div>
+				<div class='bar'></div>
+				<div class='bar'></div>
+				<div class='bar'></div>
+				<div class='bar'></div>
+				<div class='bar'></div>
+				<div class='bar'></div>
+			</div>
+		</div>
+	</div>
+</div>
+{% block content %}{% endblock %}
+
+<script src="js/src/three.min.js"></script>
+<script src="js/src/Stats.js"></script>
+<script src="js/smoke.js"></script>
+<script src="js/min/app.js"></script>
+
+</body>
+</html>
